@@ -14,12 +14,14 @@ import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+/**
+ * 邮箱：lengyacheng@163.com
+ * Created by yasin on 2021/11/28.
+ */
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
-    //用于绘制分界线
     private Drawable divider;
-
-    //设置分解线的方向
     private int orientation;
     private int dividerHeight;
     private int drawableId;
@@ -56,7 +58,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     }
 
 
-    public Builder newBuilder(){
+    public Builder newBuilder() {
         return new Builder(this);
     }
 
@@ -75,9 +77,9 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
         if (orientation == LinearLayoutManager.VERTICAL) {
-            outRect.set(0, 0, 0, divider.getIntrinsicHeight()+dividerHeight);
+            outRect.set(0, 0, 0, divider.getIntrinsicHeight() + dividerHeight);
         } else {
-            outRect.set(0, 0, divider.getIntrinsicWidth()+dividerWidth, 0);
+            outRect.set(0, 0, divider.getIntrinsicWidth() + dividerWidth, 0);
         }
     }
 
@@ -95,8 +97,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
             final View child = parent.getChildAt(i);
             final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
                     .getLayoutParams();
-            final int top = child.getBottom() + params.bottomMargin +
-                    Math.round(ViewCompat.getTranslationY(child));
+            final int top = child.getBottom() + params.bottomMargin;
             final int bottom = top + divider.getIntrinsicHeight() + dividerHeight;
 
             if (divider != null) {
